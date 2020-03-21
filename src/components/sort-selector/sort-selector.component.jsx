@@ -2,6 +2,7 @@ import React from 'react';
 
 import bubblesort from '../../utilities/bubble-sort';
 import quickSort from '../../utilities/quick-sort';
+import heapSort from '../../utilities/heap-sort';
 
 class SortSelector extends React.Component {
 
@@ -14,9 +15,13 @@ class SortSelector extends React.Component {
                 break;
 
             case 'quickSort':
-                result = quickSort(arr, 0, arr.length-1);
+                result = quickSort(arr, 0, arr.length - 1);
                 break;
-        
+
+            case 'heapSort':
+                result = heapSort(arr);
+                break;
+
             default:
                 break;
         }
@@ -25,7 +30,7 @@ class SortSelector extends React.Component {
     }
 
     render() {
-        return <h1 onClick={()=> this.selectSort('quickSort', [...this.props.dataToSort])}>Srt selector</h1>
+        return <h1 onClick={() => this.selectSort('bubbleSort', [...this.props.dataToSort])}>Srt selector</h1>
     }
 }
 

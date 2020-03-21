@@ -8,9 +8,19 @@ class SortContainer extends React.Component {
 
     state = {
         result: [],
-        dataToSort: [3,2,6,2,5,2,5,10,12,6,3,2,6,2,5,2,5,10,12,6,3,2,6,2,5,2,5,10,12,6,3,2,6,2,5,2,5,10,12,6,3,2,6,2,5,2,5,10,12,6,3,2,6,2,5,2,5,10,12,6,3,2,6,2,5,2,5,10,12,6],
+        dataToSort: [],
         steps: [],
         selectedSort: 'quickSort'
+    }
+
+    componentDidMount() {
+        this.setState({dataToSort: this.randomDataSet(25,2,50)});
+    }
+
+    randomDataSet = (dataSetSize, minValue, maxValue) => {
+        return new Array(dataSetSize).fill(0).map(function(n) {
+          return Math.random() * (maxValue - minValue) + minValue;
+        });
     }
 
     setSortedData = (steps, sortType) => {

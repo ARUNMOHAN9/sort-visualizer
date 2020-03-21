@@ -23,7 +23,7 @@ class SortVisualizer extends React.Component {
         const elem2 = domElems[step.values[1]];
         elem1.style.background = 'yellow';
         elem2.style.background = 'yellow';
-        if (this.props.selectedSort === 'quickSort') {
+        if (this.props.selectedSort !== 'bubbleSort') {
             elem1.style.transform = `translateX(${this.gettranslatevalue(elem1) + (20 * Math.abs(step.values[0] - step.values[1]))}px)`;
             elem2.style.transform = `translateX(${this.gettranslatevalue(elem2) - (20 * Math.abs(step.values[0] - step.values[1]))}px)`;
         } else {
