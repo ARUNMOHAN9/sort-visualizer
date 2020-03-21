@@ -23,8 +23,13 @@ class SortVisualizer extends React.Component {
         const elem2 = domElems[step.values[1]];
         elem1.style.background = 'yellow';
         elem2.style.background = 'yellow';
-        elem1.style.transform = `translateX(${this.gettranslatevalue(elem1) + 20}px)`;
-        elem2.style.transform = `translateX(${this.gettranslatevalue(elem2) - 20}px)`;
+        if (this.props.selectedSort === 'quickSort') {
+            elem1.style.transform = `translateX(${this.gettranslatevalue(elem1) + (20 * Math.abs(step.values[0] - step.values[1]))}px)`;
+            elem2.style.transform = `translateX(${this.gettranslatevalue(elem2) - (20 * Math.abs(step.values[0] - step.values[1]))}px)`;
+        } else {
+            elem1.style.transform = `translateX(${this.gettranslatevalue(elem1) + 20}px)`;
+            elem2.style.transform = `translateX(${this.gettranslatevalue(elem2) - 20}px)`;
+        }
         setTimeout(() => {
             elem1.style.background = 'blue';
             elem2.style.background = 'blue';

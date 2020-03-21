@@ -9,18 +9,19 @@ class SortContainer extends React.Component {
     state = {
         result: [],
         dataToSort: [3,2,6,2,5,2,5,10,12,6,3,2,6,2,5,2,5,10,12,6,3,2,6,2,5,2,5,10,12,6,3,2,6,2,5,2,5,10,12,6,3,2,6,2,5,2,5,10,12,6,3,2,6,2,5,2,5,10,12,6,3,2,6,2,5,2,5,10,12,6],
-        steps: []
+        steps: [],
+        selectedSort: 'quickSort'
     }
 
-    setSortedData = (steps) => {
-        this.setState({steps: steps});
+    setSortedData = (steps, sortType) => {
+        this.setState({steps: steps, selectedSort: sortType});
     }
 
     render() {
         return (
             <>
                 <SortSelector dataToSort={this.state.dataToSort} setSortedData={this.setSortedData}/>
-                <SortVisualizer result={this.state.dataToSort} steps={this.state.steps}/>
+                <SortVisualizer selectedSort={this.state.selectedSort} result={this.state.dataToSort} steps={this.state.steps}/>
                 <SortControlPanel />
             </>
         );
