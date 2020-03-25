@@ -47,7 +47,8 @@ class SortVisualizer extends React.Component {
 
     render() {
         return (
-            <>  <div onClick={this.selectSteps}>{this.props.result}</div>
+            <>  
+                <button className={!this.props.steps.length ? styles.disable : ''} onClick={this.selectSteps}>Trigger Sort</button>
                 <div className={styles.sortVisualizer}>
                     {this.props.result.map((elem, index) => <VerticalBar key={index} hgt={elem} />)}
                 </div>

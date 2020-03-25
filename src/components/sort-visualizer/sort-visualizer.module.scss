@@ -2,3 +2,22 @@
     display: flex;
     align-items: flex-end;
 }
+
+.disable {
+    pointer-events: none;
+    cursor: none;
+    background-color: #BDBDBD;
+}
+
+button {
+    margin: 20px 0;
+    padding: 5px 10px;
+    background-color: #212121;
+    color: white;
+    border: none;
+    box-shadow: none;
+    cursor: pointer;
+    height: 35px;
+    min-width: 115px;
+    border-radius: 5px;
+}
