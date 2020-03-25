@@ -10,16 +10,16 @@ class SortContainer extends React.Component {
         result: [],
         dataToSort: [],
         steps: [],
-        selectedSort: 'quickSort'
+        selectedSort: 'bubbleSort'
     }
 
     componentDidMount() {
-        this.setState({dataToSort: this.randomDataSet(25,2,50)});
+        this.setState({dataToSort: this.randomDataSet(10,2,50)});
     }
 
     randomDataSet = (dataSetSize, minValue, maxValue) => {
         return new Array(dataSetSize).fill(0).map(function(n) {
-          return Math.random() * (maxValue - minValue) + minValue;
+          return Math.ceil(Math.random() * (maxValue - minValue) + minValue);
         });
     }
 
@@ -30,7 +30,7 @@ class SortContainer extends React.Component {
     render() {
         return (
             <>
-                <SortSelector dataToSort={this.state.dataToSort} setSortedData={this.setSortedData}/>
+                <SortSelector dataToSort={this.state.dataToSort} setSortedData={this.setSortedData} selectedSort={this.state.selectedSort}/>
                 <SortVisualizer selectedSort={this.state.selectedSort} result={this.state.dataToSort} steps={this.state.steps}/>
                 <SortControlPanel />
             </>

@@ -21,8 +21,8 @@ class SortVisualizer extends React.Component {
         let domElems =   Array.from(document.getElementsByClassName('bar')).sort((a,b) => a.getBoundingClientRect().x - b.getBoundingClientRect().x);
         const elem1 = domElems[step.values[0]];
         const elem2 = domElems[step.values[1]];
-        elem1.style.background = 'yellow';
-        elem2.style.background = 'yellow';
+        elem1.style.background = '#FDD835';
+        elem2.style.background = '#FDD835';
         if (this.props.selectedSort !== 'bubbleSort') {
             elem1.style.transform = `translateX(${this.gettranslatevalue(elem1) + (20 * Math.abs(step.values[0] - step.values[1]))}px)`;
             elem2.style.transform = `translateX(${this.gettranslatevalue(elem2) - (20 * Math.abs(step.values[0] - step.values[1]))}px)`;
@@ -31,8 +31,8 @@ class SortVisualizer extends React.Component {
             elem2.style.transform = `translateX(${this.gettranslatevalue(elem2) - 20}px)`;
         }
         setTimeout(() => {
-            elem1.style.background = 'blue';
-            elem2.style.background = 'blue';
+            elem1.style.background = '#1565C0';
+            elem2.style.background = '#1565C0';
         }, 200);
     }
 
